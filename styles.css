@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #ffccff, #a099ff);
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Contenedor del contador */
+.countdown-container {
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 2em;
+    color: #ff3366;
+    margin-bottom: 20px;
+}
+
+/* Estilos de la cuenta regresiva */
+#countdown {
+    display: flex;
+    justify-content: space-around;
+}
+
+.time {
+    font-size: 2.5em;
+    color: #ff6699;
+    padding: 10px;
+}
+
+.label {
+    font-size: 1.2em;
+    color: #660099;
+}
+
+#days, #hours, #minutes, #seconds {
+    color: #3333ff;
+    font-weight: bold;
+    font-size: 3em;
+}
+
+/* Animación de globos */
+.balloons-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.balloon {
+    width: 50px;
+    height: 70px;
+    background-color: #ff99cc;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -150px;
+    animation: float 6s infinite ease-in-out;
+}
+
+.balloon:nth-child(2) {
+    left: 20%;
+    animation-duration: 7s;
+    background-color: #7aff66;
+}
+
+.balloon:nth-child(3) {
+    left: 50%;
+    animation-duration: 5s;
+    background-color: #e5ccff;
+}
+
+.balloon:nth-child(4) {
+    left: 80%;
+    animation-duration: 8s;
+    background-color: #ff9966;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-300px) rotate(15deg);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Animación de pitos */
+.whistle-container {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.whistle {
+    width: 80px;
+    height: 20px;
+    background-color: #ffcc33;
+    border-radius: 5px;
+    animation: whistleAnim 2s infinite;
+}
+
+@keyframes whistleAnim {
+    0%, 100% {
+        transform: scaleX(1) translateX(0);
+    }
+    50% {
+        transform: scaleX(1.5) translateX(-20px);
+    }
+}
