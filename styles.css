@@ -1,6 +1,7 @@
+/* Estilos básicos del cuerpo */
 body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(to bottom, #ffccff, #a099ff);
+    background: linear-gradient(to bottom, #ffccff, #ff99cc);
     height: 100vh;
     margin: 0;
     overflow: hidden;
@@ -17,6 +18,8 @@ body {
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px; /* Máximo ancho para pantallas grandes */
 }
 
 h1 {
@@ -29,12 +32,15 @@ h1 {
 #countdown {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap; /* Para que los elementos se ajusten en pantallas pequeñas */
 }
 
 .time {
     font-size: 2.5em;
     color: #ff6699;
     padding: 10px;
+    flex-basis: 40%; /* Cada bloque ocupará 40% del ancho en pantallas grandes */
+    margin: 10px 0; /* Espacio entre bloques */
 }
 
 .label {
@@ -72,13 +78,13 @@ h1 {
 .balloon:nth-child(2) {
     left: 20%;
     animation-duration: 7s;
-    background-color: #7aff66;
+    background-color: #ff6699;
 }
 
 .balloon:nth-child(3) {
     left: 50%;
     animation-duration: 5s;
-    background-color: #e5ccff;
+    background-color: #ffccff;
 }
 
 .balloon:nth-child(4) {
@@ -122,5 +128,25 @@ h1 {
     }
     50% {
         transform: scaleX(1.5) translateX(-20px);
+    }
+}
+
+/* Media Queries para pantallas pequeñas */
+@media screen and (max-width: 600px) {
+    h1 {
+        font-size: 1.5em;
+    }
+    
+    .time {
+        font-size: 2em;
+        flex-basis: 100%; /* Cada bloque ocupará el 100% del ancho en pantallas pequeñas */
+    }
+
+    #days, #hours, #minutes, #seconds {
+        font-size: 2.5em;
+    }
+
+    .whistle {
+        width: 60px; /* Tamaño del pitillo más pequeño en pantallas móviles */
     }
 }
